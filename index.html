@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartWorld AI | Executive Dossier & Strategic Blueprints</title>
-    <!-- Tailwind CSS CDN para despliegue ultra rápido en Vercel -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -48,7 +48,7 @@
             Arquitectura Cognitiva, Eje Chancay y Seguridad Energética. Descargue el informe estratégico estructurado bajo el modelo de IP Blindada para la alta gerencia y organismos multilaterales.
         </p>
 
-        <!-- CAJA DE ACCESO / FORMULARIO INSTITUCIONAL -->
+        <!-- CAJA DE ACCESO / FORMULARIO -->
         <div class="bg-brand-800 border border-gray-700/60 p-8 rounded-2xl max-w-2xl mx-auto shadow-2xl relative">
             <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs uppercase px-3 py-0.5 rounded font-bold tracking-wider">
                 Acceso Restringido (Bilingüe)
@@ -58,31 +58,38 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-medium text-gray-400 uppercase mb-1">Nombre Completo</label>
-                        <input type="text" required class="w-full bg-brand-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm" placeholder="Ej. Roberto Sánchez">
+                        <input type="text" id="nombre" required class="w-full bg-brand-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm" placeholder="Ej. Roberto Sánchez">
                     </div>
                     <div>
                         <label class="block text-xs font-medium text-gray-400 uppercase mb-1">Cargo Institucional</label>
-                        <input type="text" required class="w-full bg-brand-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm" placeholder="Ej. Director / Asesor Senior">
+                        <input type="text" id="cargo" required class="w-full bg-brand-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm" placeholder="Ej. Director / Asesor Senior">
                     </div>
                 </div>
 
-                <div>
-                    <label class="block text-xs font-medium text-gray-400 uppercase mb-1">Correo Corporativo / Institucional</label>
-                    <input type="email" required class="w-full bg-brand-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm" placeholder="nombre@ministerio.gob.pe o @bworldbank.org">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-400 uppercase mb-1">Correo Corporativo</label>
+                        <input type="email" id="correo" required class="w-full bg-brand-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm" placeholder="nombre@ministerio.gob.pe">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-400 uppercase mb-1">Número de WhatsApp</label>
+                        <input type="tel" id="whatsapp" required class="w-full bg-brand-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm" placeholder="Ej. +51 999 999 999">
+                    </div>
                 </div>
 
                 <div>
                     <label class="block text-xs font-medium text-gray-400 uppercase mb-1">Seleccione Versión de Interés</label>
-                    <select class="w-full bg-brand-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm">
+                    <select id="version" class="w-full bg-brand-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm">
                         <option>Español (Informe Maestro Completo)</option>
                         <option>English (The Peruvian Strategic Blueprint)</option>
                         <option>Ambas Ediciones (Doble Formato)</option>
                     </select>
                 </div>
 
-                <button type="submit" class="w-full mt-2 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 px-6 rounded-lg transition duration-200 text-sm uppercase tracking-wider shadow-lg shadow-blue-600/30">
+                <button type="submit" id="submitBtn" class="w-full mt-2 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 px-6 rounded-lg transition duration-200 text-sm uppercase tracking-wider shadow-lg shadow-blue-600/30">
                     Obtener Acceso Inmediato al Dossier
                 </button>
+                <p id="statusMsg" class="text-xs text-center mt-2 text-blue-400 font-medium"></p>
                 <p class="text-[11px] text-gray-500 text-center mt-3">
                     🔒 Sus datos están protegidos bajo estrictas políticas de confidencialidad y uso corporativo. No hacemos spam.
                 </p>
@@ -112,10 +119,50 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="py-10 px-6 text-center text-xs text-gray-600 max-w-5xl mx-auto">
-        <p>&copy; 2026 SmartWorld AI Ecosystem. Arquitectura Digital y Growth Partner Services. Todos los derechos reservados.</p>
-    </footer>
+    <!-- SCRIPT DE ENVÍO AUTOMÁTICO A GOOGLE SHEETS -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbw818U6-j8zzg_GF5r2GEibwdOAFRfpYQ_0uAev18mbPxrXK2YYI83GkosJQ1oWnY9eaQ/exec'; // Reemplaza con tu URL
+        const form = document.getElementById('accessForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const statusMsg = document.getElementById('statusMsg');
 
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Procesando Credenciales...';
+            statusMsg.textContent = '';
+
+            const requestBody = {
+                nombre: document.getElementById('nombre').value,
+                cargo: document.getElementById('cargo').value,
+                correo: document.getElementById('correo').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                version: document.getElementById('version').value
+            };
+
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: JSON.stringify(requestBody),
+                mode: 'no-cors' // Necesario para Google Apps Script
+            })
+            .then(() => {
+                submitBtn.textContent = '¡Acceso Concedido!';
+                statusMsg.textContent = 'Redirigiendo al dossier estratégico y enviando copia a su correo...';
+                form.reset();
+                setTimeout(() => {
+                    alert('¡Gracias por registrarse! Sus credenciales institucionales han sido validadas correctamente.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Obtener Acceso Inmediato al Dossier';
+                    statusMsg.textContent = '';
+                }, 2000);
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Obtener Acceso Inmediato al Dossier';
+                statusMsg.textContent = 'Hubo un error al procesar. Por favor, intente de nuevo.';
+            });
+        });
+    </script>
 </body>
 </html>
