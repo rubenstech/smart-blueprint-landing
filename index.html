@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartWorld AI | Executive Dossier & Strategic Blueprints</title>
+    <!-- Tailwind CSS CDN para despliegue ultra rápido en Vercel -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 900: '#0a0f1d', 800: '#111827', 700: '#1f2937', accent: '#3b82f6' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-900 text-gray-100 font-sans antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- HEADER / NAV -->
+    <header class="border-b border-gray-800 bg-brand-900/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="text-xl font-bold tracking-wider text-white">SMARTWORLD <span class="text-blue-500">AI</span></span>
+            </div>
+            <div class="text-xs uppercase tracking-widest text-gray-400 border border-gray-800 px-3 py-1 rounded">
+                Secure Institutional Access
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="py-20 px-6 max-w-5xl mx-auto text-center">
+        <div class="inline-block mb-4 px-4 py-1.5 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">
+            DOSSIER EJECUTIVO GLOBAL • EDICIÓN 2026
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+            Cero Amnesia de Estado: <br class="hidden md:inline">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
+                El Nuevo Dorado y la Soberanía del Perú
+            </span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+            Arquitectura Cognitiva, Eje Chancay y Seguridad Energética. Descargue el informe estratégico estructurado bajo el modelo de IP Blindada para la alta gerencia y organismos multilaterales.
+        </p>
+
+        <!-- CAJA DE ACCESO / FORMULARIO INSTITUCIONAL -->
+        <div class="bg-brand-800 border border-gray-700/60 p-8 rounded-2xl max-w-2xl mx-auto shadow-2xl relative">
+            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs uppercase px-3 py-0.5 rounded font-bold tracking-wider">
+                Acceso Restringido (Bilingüe)
+            </div>
+
+            <form id="accessForm" class="space-y-4 text-left mt-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-400 uppercase mb-1">Nombre Completo</label>
+                        <input type="text" required class="w-full bg-brand-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm" placeholder="Ej. Roberto Sánchez">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-400 uppercase mb-1">Cargo Institucional</label>
+                        <input type="text" required class="w-full bg-brand-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm" placeholder="Ej. Director / Asesor Senior">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-400 uppercase mb-1">Correo Corporativo / Institucional</label>
+                    <input type="email" required class="w-full bg-brand-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm" placeholder="nombre@ministerio.gob.pe o @bworldbank.org">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-400 uppercase mb-1">Seleccione Versión de Interés</label>
+                    <select class="w-full bg-brand-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 text-sm">
+                        <option>Español (Informe Maestro Completo)</option>
+                        <option>English (The Peruvian Strategic Blueprint)</option>
+                        <option>Ambas Ediciones (Doble Formato)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="w-full mt-2 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 px-6 rounded-lg transition duration-200 text-sm uppercase tracking-wider shadow-lg shadow-blue-600/30">
+                    Obtener Acceso Inmediato al Dossier
+                </button>
+                <p class="text-[11px] text-gray-500 text-center mt-3">
+                    🔒 Sus datos están protegidos bajo estrictas políticas de confidencialidad y uso corporativo. No hacemos spam.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- METRICS / TRUST BAR -->
+    <section class="border-y border-gray-800 bg-brand-800/40 py-10 px-6">
+        <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <div class="text-3xl font-extrabold text-white mb-1">13</div>
+                <div class="text-xs text-gray-400 uppercase tracking-wider">Verticales Estratégicas</div>
+            </div>
+            <div>
+                <div class="text-3xl font-extrabold text-white mb-1">39</div>
+                <div class="text-xs text-gray-400 uppercase tracking-wider">KPIs de Gobernanza</div>
+            </div>
+            <div>
+                <div class="text-3xl font-extrabold text-white mb-1">100%</div>
+                <div class="text-xs text-gray-400 uppercase tracking-wider">IP Blindada</div>
+            </div>
+            <div>
+                <div class="text-3xl font-extrabold text-blue-400 mb-1">Dual</div>
+                <div class="text-xs text-gray-400 uppercase tracking-wider">Español / English</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-10 px-6 text-center text-xs text-gray-600 max-w-5xl mx-auto">
+        <p>&copy; 2026 SmartWorld AI Ecosystem. Arquitectura Digital y Growth Partner Services. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
