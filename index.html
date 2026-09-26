@@ -71,7 +71,15 @@
                 <!-- Se inyectarán los botones aquí según la selección -->
             </div>
 
-            <p class="text-xs text-slate-500 pt-4 border-t border-slate-800">SmartWorld AI &copy; 2026. Todos los derechos reservados.</p>
+            <!-- NUEVO: BOTÓN DE ALTA CONSULTORÍA VÍA WHATSAPP -->
+            <div class="pt-4 border-t border-slate-800 space-y-3">
+                <p class="text-xs text-slate-400">¿Requiere una implementación a medida para su entidad o corporación?</p>
+                <a href="https://wa.me/51993224286?text=Hola,%20acabo%20de%20descargar%20el%20Executive%20Dossier%20de%20SmartWorld%20AI%20y%20deseo%20solicitar%20una%20Alta%20Consultoría." target="_blank" class="w-full bg-emerald-700 hover:bg-emerald-600 text-white font-medium py-3 px-4 rounded-lg transition-all shadow-lg shadow-emerald-700/20 text-center flex items-center justify-center gap-2 text-sm">
+                    💬 Solicitar Alta Consultoría vía WhatsApp
+                </a>
+            </div>
+
+            <p class="text-xs text-slate-500 pt-2">SmartWorld AI &copy; 2026. Todos los derechos reservados.</p>
         </div>
 
     </div>
@@ -108,7 +116,6 @@
             }).then(() => {
                 mostrarZonaDescarga(payload.version);
             }).catch(() => {
-                // Incluso si hay bloqueo de red por CORS, procedemos a mostrar la descarga para no afectar al usuario
                 mostrarZonaDescarga(payload.version);
             });
         });
@@ -121,7 +128,7 @@
             downloadSection.classList.remove('hidden');
             container.innerHTML = '';
 
-            // Lógica condicional limpia según la selección del lead
+            // Lógica condicional según la selección del lead
             if (versionSeleccionada.includes('Español') || versionSeleccionada.includes('Espa')) {
                 container.innerHTML += crearBotonDescarga('📥 Descargar Executive Report (Español)', URL_ES);
             } 
@@ -135,7 +142,7 @@
         }
 
         function crearBotonDescarga(texto, url) {
-            return `<a href="${url}" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-medium py-3.5 px-4 rounded-lg transition-all shadow-lg shadow-emerald-600/20 text-center flex items-center justify-center gap-2">
+            return `<a href="${url}" target="_blank" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-3.5 px-4 rounded-lg transition-all shadow-lg shadow-indigo-600/20 text-center flex items-center justify-center gap-2">
                 ${texto}
             </a>`;
         }
